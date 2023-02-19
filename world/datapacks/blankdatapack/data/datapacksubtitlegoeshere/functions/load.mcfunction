@@ -1,0 +1,1 @@
+tellraw @a {"text": "LOAD MESSAGE(v.1.0)", "color": "#FF0000"}

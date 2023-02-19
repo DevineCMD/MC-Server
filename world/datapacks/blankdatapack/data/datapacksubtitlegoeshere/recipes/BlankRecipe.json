@@ -1,0 +1,23 @@
+{
+    "type": "crafting_shaped",
+    "result": {
+        "item": "minecraft:air",
+        "count": 1
+    },
+    "pattern": [
+        "SBS",
+        "BTB",
+        "SBS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:air"
+        },
+        "B": {
+            "item": "minecraft:air"
+        },
+        "T": {
+            "item": "minecraft:air"
+        }
+    }
+}
