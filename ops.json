@@ -9,6 +9,6 @@
     "uuid": "c88d948f-dcca-463c-812e-c8973417d3bf",
     "name": "Panossa",
     "level": 4,
-    "bypassesPlayerLimit": false
+    "bypassesPlayerLimit": true
   }
 ]
