@@ -1,5 +1,5 @@
 /logs/*
-/librarier/*
+/libraries/*
 /versions/*
 *.lock
 server.jar
