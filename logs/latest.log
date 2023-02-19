@@ -1,0 +1,61 @@
+[22:05:51] [ServerMain/INFO]: Building unoptimized datafixer
+[22:05:51] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[22:05:53] [ServerMain/INFO]: Loaded 7 recipes
+[22:05:53] [ServerMain/INFO]: Loaded 1179 advancements
+[22:05:53] [Server thread/INFO]: Starting minecraft server version 1.19.3
+[22:05:53] [Server thread/INFO]: Loading properties
+[22:05:53] [Server thread/INFO]: Default game type: CREATIVE
+[22:05:53] [Server thread/INFO]: Generating keypair
+[22:05:53] [Server thread/INFO]: Starting Minecraft server on *:25566
+[22:05:53] [Server thread/INFO]: Using default channel type
+[22:05:53] [Server thread/INFO]: Preparing level "world"
+[22:05:54] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[22:05:56] [Worker-Main-3/INFO]: Preparing spawn area: 0%
+[22:05:56] [Worker-Main-3/INFO]: Preparing spawn area: 0%
+[22:05:56] [Worker-Main-3/INFO]: Preparing spawn area: 0%
+[22:05:56] [Worker-Main-3/INFO]: Preparing spawn area: 0%
+[22:05:56] [Worker-Main-1/INFO]: Preparing spawn area: 72%
+[22:05:56] [Server thread/INFO]: Time elapsed: 2082 ms
+[22:05:56] [Server thread/INFO]: Done (2.892s)! For help, type "help"
+[22:10:28] [User Authenticator #1/INFO]: UUID of player Devine_CMD is 4c35bfa3-f1ac-4bdd-b485-1587636c6688
+[22:10:28] [Server thread/INFO]: Disconnecting com.mojang.authlib.GameProfile@35022487[id=4c35bfa3-f1ac-4bdd-b485-1587636c6688,name=Devine_CMD,properties={textures=[com.mojang.authlib.properties.Property@24ca2f1d]},legacy=false] (/84.147.161.207:56886): You are not white-listed on this server!
+[22:10:28] [Server thread/INFO]: com.mojang.authlib.GameProfile@35022487[id=4c35bfa3-f1ac-4bdd-b485-1587636c6688,name=Devine_CMD,properties={textures=[com.mojang.authlib.properties.Property@24ca2f1d]},legacy=false] (/84.147.161.207:56886) lost connection: You are not white-listed on this server!
+[22:10:28] [Server thread/WARN]: handleDisconnection() called twice
+[22:10:44] [Server thread/INFO]: Incorrect argument for command
+[22:10:44] [Server thread/INFO]: whitelist Devine_CMD<--[HERE]
+[22:10:49] [Server thread/INFO]: Added Devine_CMD to the whitelist
+[22:10:55] [Server thread/INFO]: Added Panossa to the whitelist
+[22:10:58] [Server thread/INFO]: Reloaded the whitelist
+[22:11:00] [User Authenticator #2/INFO]: UUID of player Devine_CMD is 4c35bfa3-f1ac-4bdd-b485-1587636c6688
+[22:11:00] [Server thread/INFO]: Devine_CMD[/84.147.161.207:56912] logged in with entity id 137 at (-1.5, 79.0, 4.5)
+[22:11:00] [Server thread/INFO]: Devine_CMD joined the game
+[22:13:24] [Server thread/INFO]: Made Devine_CMD a server operator
+[22:13:29] [Server thread/INFO]: Made Panossa a server operator
+[22:14:53] [Server thread/INFO]: [Devine_CMD: Set own game mode to Survival Mode]
+[22:15:04] [Server thread/INFO]: [Devine_CMD: Unlocked 1089 recipes for Devine_CMD]
+[22:15:19] [Server thread/INFO]: [Devine_CMD: Changed the block at 149, 92, -31]
+[22:16:00] [Server thread/INFO]: [Devine_CMD: Set own game mode to Creative Mode]
+[22:16:03] [Server thread/INFO]: [Devine_CMD: Set the time to 1000]
+[22:16:09] [Server thread/INFO]: [Devine_CMD: Gamerule doDaylightCycle is now set to: false]
+[22:16:13] [Server thread/INFO]: [Devine_CMD: Gamerule doWeatherCycle is now set to: false]
+[22:16:18] [Server thread/INFO]: [Devine_CMD: Gamerule doFireTick is now set to: false]
+[22:16:21] [Server thread/INFO]: [Devine_CMD: Gamerule doInsomnia is now set to: false]
+[22:16:34] [Server thread/INFO]: [Devine_CMD: Gamerule playersSleepingPercentage is now set to: 0]
+[22:16:44] [Server thread/INFO]: [Devine_CMD: Killed 10 entities]
+[22:19:05] [Server thread/INFO]: [Devine_CMD: Set own game mode to Spectator Mode]
+[22:24:32] [Server thread/INFO]: [Devine_CMD: Set own game mode to Creative Mode]
+[22:24:58] [Server thread/INFO]: Devine_CMD fell out of the world
+[22:24:58] [Server thread/INFO]: [Devine_CMD: Killed Devine_CMD]
+[22:25:24] [Server thread/INFO]: Devine_CMD lost connection: Disconnected
+[22:25:24] [Server thread/INFO]: Devine_CMD left the game
+[22:43:19] [Server thread/INFO]: Stopping the server
+[22:43:19] [Server thread/INFO]: Stopping server
+[22:43:19] [Server thread/INFO]: Saving players
+[22:43:19] [Server thread/INFO]: Saving worlds
+[22:43:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[22:43:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[22:43:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[22:43:20] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[22:43:20] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22:43:20] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22:43:20] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
