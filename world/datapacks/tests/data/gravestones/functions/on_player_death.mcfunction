@@ -1,2 +1,2 @@
-tellraw @a ["",{"selector":"@s","bold":true,"clickEvent":{"action":"run_command","value":"tellraw @a haha"}},{"text":"died","bold":true,"clickEvent":{"action":"run_command","value":"tellraw @a haha"}}]
+tellraw @a ["",{"selector":"@s","bold":true}," ",{"text":"died at","bold":true}, {"nbt":"Pos[0]","entity":"@s"}]
 scoreboard players operation @s deathsBuffer > @s deaths
