@@ -1,2 +1,2 @@
-say hi
+tellraw @a ["",{"selector":"@s","bold":true,"clickEvent":{"action":"run_command","value":"tellraw @a haha"}},{"text":"died","bold":true,"clickEvent":{"action":"run_command","value":"tellraw @a haha"}}]
 scoreboard players operation @s deathsBuffer > @s deaths
