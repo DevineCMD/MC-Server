@@ -1,4 +1,6 @@
 say ondeath
+data modify storage holder Items set from entity @s Inventory
+clear @s
 execute store result score @s tempX run data get entity @s Pos[0]
 execute store result score @s tempY run data get entity @s Pos[1]
 execute store result score @s tempZ run data get entity @s Pos[2]
