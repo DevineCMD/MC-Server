@@ -1,0 +1,74 @@
+Version 1:
+	Zwei Kisten:
+	1. Inventar
+	2. Hotbar, Offhand, Armor
+Version 2:
+	1. Inventar -> yellow shulker box
+	2. Give all items in shulker box tag: test=1b
+	3. loot spawn @ player air{drop_contents:1b} 
+	4. Execute following function as @s (that item with tag test=1b):
+		give @s invul 1b
+		remove @s test=1b
+		give @s pickupDelay 0
+	6. Armor, Offhand, Hotbar: pro slot:
+		if (item there)
+			random item spawnen (stick mit pickupDelay=1000, tag=test2)
+			Execute following function as @s (that item)
+				data modify entity @s Item set from @s/@p Inventory[X]
+				set pickupDelay of said item to 0
+				remove tag test2
+		replace item in slot with item from corpse
+Version 3:
+	insert() => function, which inserts the first item in storage (index 0) into the first free slot in the player inv
+				sorted by: inventory first, then hotbar (i.e. slots 9-35, then slots 0-8)
+				Content of function:
+					loot replace player one next item from shulker items array into slot X
+					remove first item from shulker box items array (index 0)
+	1. Inventar -> yellow shulker box, Armor -> extra storage
+	2. Loop:
+		1. Move old player inventory from storage:
+			// get remaining shulker item count
+			execute store result score $var shulkerItems run data get storage minecraft:shulker Items
+			execute if entity @s(player)[nbt=!{Inventory:[{Slot:Xb}]}] if score $var shulkerItems > 0 run function insert()
+	3. Hotbar:
+	4. Armor: see Version 2
+	5. shulker box -> loot spawn air{drop_contents} => see above for invul and pickupDelay
+SIDENOTE: what if player dies 2 times? Id needed like in Oyster's Gravestone mod, oof
+
+Version "Even 4ther beyond":
+	Comparison/prioritization of items of higher value/rarity 
+		(e.g. if I take diamond armor to rescue my iron armor corpse, I should keep my diamond stuff on my slots, duh)
+	Also reorder items to be dropped at the end of trying to stuff it into the player by weapons>armor>items
+Version 5:
+	Rarity {
+		LEATHER = 1,
+		GOLD = 2,
+		CHAIN = 3,
+		IRON = 4,
+		DIAMOND = 5
+	}
+
+	Value = (Rarity * 2) * (1 + Enchantments.length * weight[0.1..0.5]) = Chain w/1 => 9, Iron w/1 => 16, Diamond w/0 => 10
+	Value = (Rarity * 2) + (Enchantments.length) = Chain w/1 => 7, Iron w/1 => 9, Diamond w/0 => 10
+	Value = (Rarity * Rarity) * (1 + Enchantments.length) = Chain w/1 => 18, Iron w/1 => 32, Diamond w/0 => 50
+	Value = (Rarity * Rarity) + (Enchantments.length) = Chain w/1 => 10, Iron w/1 => 17, Diamond w/0 => 26
+
+
+Check how many items are in an array in storage:
+	Method 1: /execute store result score <fake_player> <var> run data get storage <name_of_storage> <name_of_array>
+		Example: /execute store result score $var temp run data get storage minecraft:test Items
+		Check by: /execute if data storage ...
+	Method 2: /execute store result storage <storage> <var> byte 1 run data get storage <name_of_storage> <name_of_array>
+		Example: /execute store result storage test2 res byte 1 run data get storage minecraft:test Items
+		Check by: /execute if score ...
+	General example:
+		/execute store result score $var temp run data get entity Panossa Inventory 
+			=> sets item count in inventory into temp scoreboard of $var
+
+Aktuelle Idee: 
+	0. In zwei Storages aufteilen: Rüstung und Rest.
+	1. Hotbar rekonstruieren (aus Storage loot replace pro slot! => wie oben, also aktuelles item in storage APPEND, dann replace)
+	2. Items aus der Rüstungsstorage wie in (2.) überschreiben. Also aktuelle Rüstung in Storage APPEND, dann replace.
+	3. Items aus dem normalen Inventar (Slots 9 bis 35) via loot give dem Spieler geben (stackt dann zur Not), solang der nen Slot frei hat (get player inv items, if itemCount < 35 oder sowas) -> hier auch den Storage aus hotbar replace nutzen -> derselbe storage!
+	4. Restliche Storage (überschriebene Hotbar, überschriebene Rüstung und ggf. weitere Items aus dem Inventar der Leiche)
+		=> droppen mit Invul und pickupDelay (via yellow shulker box)
