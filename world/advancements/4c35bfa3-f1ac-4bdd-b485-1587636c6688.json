@@ -1,4 +1,43 @@
 {
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_pine_taiga": "2023-02-19 22:19:52 +0100",
+      "minecraft:taiga": "2023-02-19 22:19:46 +0100",
+      "minecraft:frozen_river": "2023-02-19 22:18:26 +0100",
+      "minecraft:windswept_hills": "2023-02-19 22:11:01 +0100",
+      "minecraft:beach": "2023-02-19 22:24:10 +0100",
+      "minecraft:dark_forest": "2023-02-19 22:21:48 +0100",
+      "minecraft:river": "2023-02-19 22:19:07 +0100",
+      "minecraft:snowy_plains": "2023-02-19 22:11:21 +0100",
+      "minecraft:snowy_taiga": "2023-02-19 22:18:27 +0100",
+      "minecraft:forest": "2023-02-19 22:25:15 +0100",
+      "minecraft:lush_caves": "2023-02-19 22:19:54 +0100",
+      "minecraft:frozen_ocean": "2023-03-04 19:28:39 +0100",
+      "minecraft:old_growth_spruce_taiga": "2023-02-19 22:19:47 +0100",
+      "minecraft:snowy_beach": "2023-02-19 22:18:28 +0100",
+      "minecraft:windswept_gravelly_hills": "2023-02-19 22:11:06 +0100",
+      "minecraft:plains": "2023-02-19 22:11:15 +0100"
+    },
+    "done": false
+  },
+  "minecraft:recipes/misc/red_dye_from_poppy": {
+    "criteria": {
+      "has_poppy": "2023-02-19 22:13:56 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/yellow_dye_from_dandelion": {
+    "criteria": {
+      "has_dandelion": "2023-02-19 22:13:57 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/orange_dye_from_orange_tulip": {
+    "criteria": {
+      "has_orange_tulip": "2023-02-19 22:13:58 +0100"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/waxed_cut_copper_stairs_from_honeycomb": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
@@ -512,12 +551,6 @@
   "minecraft:recipes/decorations/deepslate_brick_wall_from_deepslate_bricks_stonecutting": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
-    },
-    "done": true
-  },
-  "minecraft:story/obtain_armor": {
-    "criteria": {
-      "iron_helmet": "2023-02-20 16:58:44 +0100"
     },
     "done": true
   },
@@ -4115,12 +4148,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/misc/red_dye_from_poppy": {
-    "criteria": {
-      "has_poppy": "2023-02-19 22:13:56 +0100"
-    },
-    "done": true
-  },
   "minecraft:recipes/building_blocks/waxed_oxidized_cut_copper": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
@@ -4148,12 +4175,6 @@
   "minecraft:recipes/decorations/polished_blackstone_brick_wall": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/yellow_dye_from_dandelion": {
-    "criteria": {
-      "has_dandelion": "2023-02-19 22:13:57 +0100"
     },
     "done": true
   },
@@ -4505,26 +4526,6 @@
     },
     "done": true
   },
-  "minecraft:adventure/adventuring_time": {
-    "criteria": {
-      "minecraft:old_growth_pine_taiga": "2023-02-19 22:19:52 +0100",
-      "minecraft:taiga": "2023-02-19 22:19:46 +0100",
-      "minecraft:frozen_river": "2023-02-19 22:18:26 +0100",
-      "minecraft:windswept_hills": "2023-02-19 22:11:01 +0100",
-      "minecraft:beach": "2023-02-19 22:24:10 +0100",
-      "minecraft:dark_forest": "2023-02-19 22:21:48 +0100",
-      "minecraft:river": "2023-02-19 22:19:07 +0100",
-      "minecraft:snowy_plains": "2023-02-19 22:11:21 +0100",
-      "minecraft:snowy_taiga": "2023-02-19 22:18:27 +0100",
-      "minecraft:forest": "2023-02-19 22:25:15 +0100",
-      "minecraft:lush_caves": "2023-02-19 22:19:54 +0100",
-      "minecraft:old_growth_spruce_taiga": "2023-02-19 22:19:47 +0100",
-      "minecraft:snowy_beach": "2023-02-19 22:18:28 +0100",
-      "minecraft:windswept_gravelly_hills": "2023-02-19 22:11:06 +0100",
-      "minecraft:plains": "2023-02-19 22:11:15 +0100"
-    },
-    "done": false
-  },
   "minecraft:recipes/building_blocks/cut_red_sandstone": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
@@ -4624,12 +4625,6 @@
   "minecraft:recipes/misc/sugar_from_honey_bottle": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/orange_dye_from_orange_tulip": {
-    "criteria": {
-      "has_orange_tulip": "2023-02-19 22:13:58 +0100"
     },
     "done": true
   },
@@ -6019,12 +6014,6 @@
     },
     "done": true
   },
-  "minecraft:story/root": {
-    "criteria": {
-      "crafting_table": "2023-02-19 22:16:54 +0100"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/slime_ball": {
     "criteria": {
       "has_the_recipe": "2023-02-19 22:15:04 +0100"
@@ -6487,5 +6476,41 @@
     },
     "done": true
   },
-  "DataVersion": 3218
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2023-02-19 22:16:54 +0100"
+    },
+    "done": true
+  },
+  "minecraft:story/obtain_armor": {
+    "criteria": {
+      "iron_helmet": "2023-02-20 16:58:44 +0100"
+    },
+    "done": true
+  },
+  "minecraft:story/form_obsidian": {
+    "criteria": {
+      "obsidian": "2023-03-04 03:38:22 +0100"
+    },
+    "done": true
+  },
+  "minecraft:end/root": {
+    "criteria": {
+      "entered_end": "2023-03-04 03:57:06 +0100"
+    },
+    "done": true
+  },
+  "minecraft:story/enter_the_end": {
+    "criteria": {
+      "entered_end": "2023-03-04 03:57:06 +0100"
+    },
+    "done": true
+  },
+  "minecraft:story/mine_stone": {
+    "criteria": {
+      "get_stone": "2023-03-04 19:58:47 +0100"
+    },
+    "done": true
+  },
+  "DataVersion": 3332
 }
