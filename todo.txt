@@ -72,3 +72,31 @@ Aktuelle Idee:
 	3. Items aus dem normalen Inventar (Slots 9 bis 35) via loot give dem Spieler geben (stackt dann zur Not), solang der nen Slot frei hat (get player inv items, if itemCount < 35 oder sowas) -> hier auch den Storage aus hotbar replace nutzen -> derselbe storage!
 	4. Restliche Storage (überschriebene Hotbar, überschriebene Rüstung und ggf. weitere Items aus dem Inventar der Leiche)
 		=> droppen mit Invul und pickupDelay (via yellow shulker box)
+
+Idea for spawn:
+	item_display with:
+		brightness:{sky:15,block:15}
+		item.tag: [{gametime:x},{uuid1:y},{Items:[z]}]
+			x = time query gametime
+			y = data get UUID[0] of player
+			z = data get Inventory of player
+	interaction with:
+		PortalCooldown = Gametime (maybe later change to using modulo 2147483647 to wrap around Integer.MAX_VALUE)
+			 /data modify entity @e[type=minecraft:interaction,limit=1,sort=nearest] PortalCooldown set value 2147483647
+	Workflow:
+		1. Interaction gets right/left clicked
+			left click via advancement: player_hurt_entity
+			right click via advancement: player_interacted_with_entity
+		2. Interaction searches for the corresponding item_display (via gametime)
+		3. item_display 
+			- finds player via saved UUID in item.tag.uuid1
+			- gives player items (via item.tag.Items), 
+				// see above
+			- kills interaction entity (via gametime),
+			- plays sound,
+			- plays particles,
+			- kills itself (:c)
+
+Misc:
+	- Wenn block um Gravestone = air, start glowing
+	- Block break sound: block.stone.break + particles
