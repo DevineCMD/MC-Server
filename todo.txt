@@ -1,16 +1,63 @@
+# "new" items = items the player has when taking back items from corpse, "old" = items the player had when dying (:c)
 Version 1:
-	Zwei Kisten:
-	1. Inventar
-	2. Hotbar, Offhand, Armor
-Version 2:
-	1. Inventar -> yellow shulker box
-	2. Give all items in shulker box tag: test=1b
+	Reacting to player death:
+		item_display with:
+		brightness:{sky:15,block:15}
+		item.tag: [{gametime:x},{uuid1:y},{Items:[z]}]
+			x = time query gametime
+			y = data get UUID[0] of player
+			z = data get Inventory of player
+		interaction with:
+			PortalCooldown = Gametime (maybe later change to using modulo 2147483647 to wrap around Integer.MAX_VALUE)
+				/data modify entity @e[type=minecraft:interaction,limit=1,sort=nearest] PortalCooldown set value 2147483647
+		Workflow:
+			1. Interaction gets right/left clicked
+				left click via advancement: player_hurt_entity
+				right click via advancement: player_interacted_with_entity
+			2. Interaction searches for the corresponding item_display (via gametime)
+			3. item_display 
+				- finds player via saved UUID in item.tag.uuid1
+				- gives player items (via item.tag.Items), 
+					// see above
+				- kills interaction entity (via gametime),
+				- plays sound,
+				- plays particles,
+				- kills itself (:c)
+	1. Inventory -> storage
+	2. Split items in storage: Armor and rest in two different storages
+	// later:
+	3. Save new inventory to gravestone item tag
+	4. Clear @s
+	5. Give items back to player:
+		1. Reconstruct hotbar:
+			1. Override now empty hotbar with loot replace entity @s hotbar.0 9 mine x y z air{drop_contents:1b}
+			2. Fill yellow shulker box with hotbar of new inventory (slot-by-slot)
+				delete for each item taken this item from its storage
+			3. loot give entity @s items from said shulker box
+			4. Save and delete overflow like this (pseudocode):
+				if (player has item in slot 9 (first inventory slot)) {
+					manageSlot(9);
+				}
+				manageSlot(X) {
+					save said item in storage (gravestone item tag)
+					delete item from slot X
+					if (player has item in slot X+1) {
+						manageSlot(X+1);
+					}
+				}
+		2. Items aus der Rüstungsstorage wie in (2.) überschreiben. Also aktuelle Rüstung in Storage APPEND, dann replace.
+		3. Items aus dem normalen Inventar (Slots 9 bis 35) via loot give dem Spieler geben (stackt dann zur Not), solang der nen Slot frei hat (get player inv items, if itemCount < 35 oder sowas) -> hier auch den Storage aus hotbar replace nutzen -> derselbe storage!
+		4. Restliche Storage (überschriebene Hotbar, überschriebene Rüstung und ggf. weitere Items aus dem Inventar der Leiche)
+			=> droppen mit Invul und pickupDelay (via yellow shulker box)
+	
+	
+// OLD STUFF PLEASE IGNORE:
 	3. loot spawn @ player air{drop_contents:1b} 
 	4. Execute following function as @s (that item with tag test=1b):
 		give @s invul 1b
 		remove @s test=1b
 		give @s pickupDelay 0
-	6. Armor, Offhand, Hotbar: pro slot:
+	//6. Armor, Offhand, Hotbar: pro slot:
 		if (item there)
 			random item spawnen (stick mit pickupDelay=1000, tag=test2)
 			Execute following function as @s (that item)
@@ -64,38 +111,6 @@ Check how many items are in an array in storage:
 	General example:
 		/execute store result score $var temp run data get entity Panossa Inventory 
 			=> sets item count in inventory into temp scoreboard of $var
-
-Aktuelle Idee: 
-	0. In zwei Storages aufteilen: Rüstung und Rest.
-	1. Hotbar rekonstruieren (aus Storage loot replace pro slot! => wie oben, also aktuelles item in storage APPEND, dann replace)
-	2. Items aus der Rüstungsstorage wie in (2.) überschreiben. Also aktuelle Rüstung in Storage APPEND, dann replace.
-	3. Items aus dem normalen Inventar (Slots 9 bis 35) via loot give dem Spieler geben (stackt dann zur Not), solang der nen Slot frei hat (get player inv items, if itemCount < 35 oder sowas) -> hier auch den Storage aus hotbar replace nutzen -> derselbe storage!
-	4. Restliche Storage (überschriebene Hotbar, überschriebene Rüstung und ggf. weitere Items aus dem Inventar der Leiche)
-		=> droppen mit Invul und pickupDelay (via yellow shulker box)
-
-Idea for spawn:
-	item_display with:
-		brightness:{sky:15,block:15}
-		item.tag: [{gametime:x},{uuid1:y},{Items:[z]}]
-			x = time query gametime
-			y = data get UUID[0] of player
-			z = data get Inventory of player
-	interaction with:
-		PortalCooldown = Gametime (maybe later change to using modulo 2147483647 to wrap around Integer.MAX_VALUE)
-			 /data modify entity @e[type=minecraft:interaction,limit=1,sort=nearest] PortalCooldown set value 2147483647
-	Workflow:
-		1. Interaction gets right/left clicked
-			left click via advancement: player_hurt_entity
-			right click via advancement: player_interacted_with_entity
-		2. Interaction searches for the corresponding item_display (via gametime)
-		3. item_display 
-			- finds player via saved UUID in item.tag.uuid1
-			- gives player items (via item.tag.Items), 
-				// see above
-			- kills interaction entity (via gametime),
-			- plays sound,
-			- plays particles,
-			- kills itself (:c)
 
 Misc:
 	- Wenn block um Gravestone = air, start glowing
