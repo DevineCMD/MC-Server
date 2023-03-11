@@ -2,4 +2,3 @@
 /libraries/*
 /versions/*
 *.lock
-server.jar

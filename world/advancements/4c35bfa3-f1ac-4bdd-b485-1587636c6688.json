@@ -6512,5 +6512,17 @@
     },
     "done": true
   },
-  "DataVersion": 3332
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2023-03-05 22:49:43 +0100"
+    },
+    "done": true
+  },
+  "minecraft:end/dragon_breath": {
+    "criteria": {
+      "dragon_breath": "2023-03-06 00:06:39 +0100"
+    },
+    "done": true
+  },
+  "DataVersion": 3335
 }
