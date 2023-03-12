@@ -1,3 +1,3 @@
-tellraw @a {"text": "LOADED (v.0.1)", "color": "#FF0000"}
-scoreboard objectives add deaths deathCount
+tellraw @a {"text": "LOADED (v.0.2)", "color": "#961DFB"}
+scoreboard objectives add gravestones_deaths deathCount
 gamerule keepInventory true
