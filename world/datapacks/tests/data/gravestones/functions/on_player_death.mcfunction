@@ -10,14 +10,20 @@ execute store result score $z gravestones run data get entity @s LastDeathLocati
 tellraw @a [{"selector":"@s","bold":true}," ",{"text":"died at ","bold":false}, {"color":"red", "score":{"name":"$x","objective":"gravestones"}}, " ", {"color":"green", "score":{"name":"$y","objective":"gravestones"}}, " ", {"color":"blue", "score":{"name":"$z","objective":"gravestones"}}]
 
 # Actually summon gravestone
-## TODO insert ids, timestamp etc
-summon minecraft:item_display 0 -10 0 {item:{id:"minecraft:stick",Count:1b,tag:{CustomModelData:1,gametime:-1L,uuid0:-1}},brightness:{sky:15,block:15},shadow_radius:0.45f,shadow_strength:0.8f,Tags:["grave","fresh"]}
-## Write UUID into gravestone to recognize player. Grab only the first part as more is not neccessary, probably.
-data modify entity @e[type=minecraft:item_display,tag=fresh,limit=1] item.tag.UUID0 set from entity @s UUID[0]
-## Maybe possible with two commands. One for saving all pos, one for writing all pos. But LastDeathLocation saves ints. :/
-execute store result storage gravestones:data deathX double 1 run data get entity @s LastDeathLocation{dimension:"minecraft:overworld"}.pos[0]
-execute store result storage gravestones:data deathY double 1 run data get entity @s LastDeathLocation{dimension:"minecraft:overworld"}.pos[1]
-execute store result storage gravestones:data deathZ double 1 run data get entity @s LastDeathLocation{dimension:"minecraft:overworld"}.pos[2]
+## TODO forceload chunk if needed ("execute unless loaded")
+summon minecraft:item_display 0 -10 0 {item:{id:"minecraft:stick",Count:1b,tag:{CustomModelData:1,gametime:-1L,id:-1}},brightness:{sky:15,block:15},shadow_radius:0.45f,shadow_strength:0.8f,Tags:["grave","fresh"]}
+
+### BIG TODO HERE, ONLY KEEP ONE OF THESE
+## Write ID into gravestone to recognize player. Store next available ID into scoreboard. How does it recognize the player then? (+performance?)
+execute store result score @e[type=minecraft:item_display,tag=fresh,limit=1] gravestones_ids run scoreboard players add $nextID gravestones_ids 1
+# TODO OR store next available ID into entity. How does it recognize the player then?
+execute store result entity @e[type=minecraft:item_display,tag=fresh,limit=1] item.tag.id int 1 run scoreboard players add $nextID gravestones_ids 1
+# TODO OR grab last part of UUID of player (apparently this is the most random single part of a UUID?)
+data modify entity @e[type=minecraft:item_display,tag=fresh,limit=1] item.tag.UUID3 set from entity @s UUID[3]
+
+# Add gravestone id (scoreboard) of corresponding player to this gravestone
+execute store result score @e[type=minecraft:item_display,tag=fresh,limit=1] gravestones_ids run scoreboard players get @s gravestones_ids
+# Execute setup commands as gravestone (item_display)
 execute as @e[type=item_display,tag=fresh,limit=1] run function gravestones:new_grave
 
 # Clean up
