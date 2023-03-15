@@ -4,7 +4,11 @@ say new grave
 execute store result storage gravestones:data gametime long 1 run time query gametime
 data modify entity @s item.tag.gametime set from storage gravestones:data gametime
 ## copy own saved id (related to creator/player) to temp variable to be able to use id_match predicate to search for player
+### load ID from nbt
+execute store result score @s gravestones_ids run data get entity @s item.tag.id
 scoreboard players operation $tempID gravestones_ids = @s gravestones_ids
+### dump ID from score since it's already saved in NBT
+scoreboard players reset @s gravestones_ids
 say I was found by
 execute as @a[predicate=gravestones:id_match] run say me! 
 # Move gravestone to player death position. TODO forceload chunks like in Oyster's datapack
