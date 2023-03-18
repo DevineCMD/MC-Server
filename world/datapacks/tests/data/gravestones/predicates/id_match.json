@@ -2,14 +2,14 @@
   "condition": "minecraft:entity_scores",
   "entity": "this",
   "scores": {
-    "gravestones_ids": {
+    "gravestones.IDs": {
       "min": {
         "type": "minecraft:score",
         "target": {
           "type": "minecraft:fixed",
           "name": "$tempID"
         },
-        "score": "gravestones_ids"
+        "score": "gravestones.IDs"
       },
       "max": {
         "type": "minecraft:score",
@@ -17,7 +17,7 @@
           "type": "minecraft:fixed",
           "name": "$tempID"
         },
-        "score": "gravestones_ids"
+        "score": "gravestones.IDs"
       }
     }
   }

@@ -1,7 +1,9 @@
-tellraw @a {"text": "LOADED (v.0.2)", "color": "#961DFB"}
+tellraw @a {"text": "LOADED (v.0.3)", "color": "#961DFB"}
 # TODO test with multiple people dying in the same tick. If any bugs occur, we might need to split "gravestones" into multiple scoreboards.
-scoreboard objectives add gravestones deathCount
-scoreboard objectives add gravestones_ids dummy
-# Set up $nextID variable to be able to give IDs to gravestones, unless such a variable is already present.
-execute unless score $nextID gravestones_ids matches 0.. run scoreboard players set $nextID gravestones_ids 0
+scoreboard objectives add gravestones.Deaths deathCount
+scoreboard objectives add gravestones.IDs dummy
+# Set up $nextPlayerID variable to be able to give IDs to gravestones, unless such a variable is already present.
+execute unless score $nextPlayerID gravestones.IDs matches 0.. run scoreboard players set $nextPlayerID gravestones.IDs 0
+# Set up $nextGravestoneID variable to ID graves. Used to create a link between the interaction and display entity of a specific grave.
+execute unless score $nextGravestoneID gravestones.IDs matches 0.. run scoreboard players set $nextGravestoneID gravestones.IDs 0
 gamerule keepInventory true
