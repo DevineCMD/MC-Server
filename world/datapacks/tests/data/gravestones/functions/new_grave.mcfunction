@@ -7,9 +7,9 @@ execute store result entity @s item.tag.graveID int 1 run scoreboard players add
 execute store result score $tempID gravestones.IDs run data get entity @s item.tag.playerID
 
 # Move gravestone to player death position. @a[predicate=gravestones:id_match,limit=1] => the player this grave belongs to
-execute store result entity @s Pos[0] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation{dimension:"minecraft:overworld"}.pos[0]
-execute store result entity @s Pos[1] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation{dimension:"minecraft:overworld"}.pos[1]
-execute store result entity @s Pos[2] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation{dimension:"minecraft:overworld"}.pos[2]
+execute store result entity @s Pos[0] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation.pos[0]
+execute store result entity @s Pos[1] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation.pos[1]
+execute store result entity @s Pos[2] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation.pos[2]
 execute at @s run tp @s ~.5 ~.5 ~.5
 
 # TODO create interaction
