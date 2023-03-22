@@ -1,21 +1,27 @@
 {
     "criteria": {
-        "requirement": {
-            "trigger": "minecraft:entity_hurt_player",
+        "requirememt": {
+            "trigger": "minecraft:player_hurt_entity",
             "conditions": {
-                "player": [
-                    {
-                        "condition": "minecraft:entity_properties",
-                        "entity": "this",
-                        "predicate": {
-                            "nbt": "{Health:0f}"
-                        }
+                "entity": {
+                    "type": "minecraft:interaction"
+                },
+                "damage": {
+                    "dealt": {
+                        "min": 0,
+                        "max": 10
+                    },
+                    "source_entity": {
+                        "type": "minecraft:player"
                     }
-                ]
+                }
             }
         }
     },
     "rewards": {
-        "function": "gravestones:on_player_death"
+        "function": "gravestones:on_click_grave"
     }
-}
+  }
+  
+
+  

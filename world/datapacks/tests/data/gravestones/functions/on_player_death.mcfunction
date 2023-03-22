@@ -1,7 +1,4 @@
 # @s = player who just died
-# TODO copy items into gravestone instead of storage, then move clear @s accordingly
-data modify storage gravestones:holder Items set from entity @s Inventory
-clear @s
 
 # Saving coordinates to display in chat. This will be done in here until Mojang adds storage support in tellraw.
 ## for now, assuming the player died in the overworld. TODO other dimensions
