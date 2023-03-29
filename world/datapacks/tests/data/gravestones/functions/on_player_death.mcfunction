@@ -1,10 +1,10 @@
 # @s = player who just died
-
 # Saving coordinates to display in chat. This will be done in here until Mojang adds storage support in tellraw.
-## for now, assuming the player died in the overworld. TODO other dimensions
-execute as @s[nbt={LastDeathLocation:{dimension:"minecraft:overworld"}}] run function gravestones:death_in_overworld
-execute as @s[nbt={LastDeathLocation:{dimension:"minecraft:the_nether"}}] run function gravestones:death_in_nether
-execute as @s[nbt={LastDeathLocation:{dimension:"minecraft:the_end"}}] run function gravestones:death_in_end
+execute store result score $x gravestones.Deaths run data get entity @s LastDeathLocation.pos[0]
+execute store result score $y gravestones.Deaths run data get entity @s LastDeathLocation.pos[1]
+execute store result score $z gravestones.Deaths run data get entity @s LastDeathLocation.pos[2]
+tellraw @a [{"selector":"@s","bold":true}," ",{"text":"died at ","bold":false}, {"color":"red", "score":{"name":"$x","objective":"gravestones.Deaths"}}, " ", {"color":"green", "score":{"name":"$y","objective":"gravestones.Deaths"}}, " ", {"color":"blue", "score":{"name":"$z","objective":"gravestones.Deaths"}}]
+function gravestones:summon_gravestone
 
 # Clean up
-scoreboard players set @s gravestones.Deaths 0
+advancement revoke @s only gravestones:player_died
