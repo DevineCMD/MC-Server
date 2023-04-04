@@ -1,5 +1,5 @@
 # @s = (any loaded) interaction entity
-
+say find gravestone
 # TODO: search for other interaction entities 
 # if more interaction entities are found, copy attack&interaction nbt tag to all on the same block so they get triggered too
 data modify storage gravestones:data interaction set from entity @s interaction
