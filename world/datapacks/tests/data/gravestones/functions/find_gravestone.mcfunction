@@ -8,7 +8,7 @@ tag @s add this
 execute at @s as @e[type=interaction,tag=!this,distance=..1] run function gravestones:copy_interaction_data
 tag @s remove this
 # let all loaded item_displays load their respective graveID in the IDs scoreboard for id_match to work
-execute as @e[type=item_display,distance=..1] run execute store result score @s gravestones.IDs run data get entity @s item.tag.graveID
+execute as @e[type=item_display,distance=..1] at @s run execute store result score @s gravestones.IDs run data get entity @s item.tag.graveID
 execute store result score $tempID gravestones.IDs run data get entity @s PortalCooldown
 execute as @e[type=item_display,predicate=gravestones:id_match] run function gravestones:find_player
 # execute as the item_display corresponding to this interaction entity: function which tests whether the correct player clicked
