@@ -5,5 +5,5 @@ execute store result score $tempID gravestones.Deaths run data get entity @s ite
 # find player via UUID match
 say Found @a[predicate=gravestones:id_match] with my id
 # TODO advancement revoke said advancement
-advancement revoke @a only gravestones:clicked_left
-advancement revoke @a only gravestones:clicked_right
+advancement revoke @a only gravestones:player_interacted_left
+advancement revoke @a only gravestones:player_interacted_right
