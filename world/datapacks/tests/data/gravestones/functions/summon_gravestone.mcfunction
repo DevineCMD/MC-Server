@@ -1,5 +1,5 @@
 # Actually summon gravestone. Set temporary attributes in item.tag to see errors more clearly (-1 as error value).
-## TODO forceload chunk if needed ("execute unless loaded") - execute from advancement of entity_hurt_player with health 0
+## TODO: forceload chunk if needed ("execute unless loaded") - execute from advancement of entity_hurt_player with health 0
 summon minecraft:item_display 0 -10 0 {item:{id:"minecraft:stick",Count:1b,tag:{CustomModelData:1,graveID:-1,playerID:-1}},brightness:{sky:15,block:15},shadow_radius:0.45f,shadow_strength:0.8f,Tags:["grave","fresh"]}
 
 # Give player an ID unless they already have one. Update next available ID in the same command for the next use.

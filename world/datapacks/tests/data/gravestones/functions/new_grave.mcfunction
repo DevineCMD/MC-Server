@@ -16,7 +16,7 @@ execute store result entity @s Pos[1] double 1 run data get entity @a[predicate=
 execute store result entity @s Pos[2] double 1 run data get entity @a[predicate=gravestones:id_match,limit=1] LastDeathLocation.pos[2]
 execute at @s run tp @s ~.5 ~.5 ~.5
 
-# TODO create interaction
+# TODO: create interaction
 execute at @s run summon minecraft:interaction ~ ~-.5 ~ {width:0.5f,PortalCooldown:-1}
 execute as @s run data modify entity @e[type=minecraft:interaction,limit=1,nbt={PortalCooldown:-1},sort=nearest] PortalCooldown set from entity @s item.tag.graveID
 
