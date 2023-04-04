@@ -11,7 +11,9 @@ tag @s remove this
 # distance is 0.5 because of anchor height of interaction vs. item_display
 execute as @e[type=item_display,distance=0.5] run execute store result score @s gravestones.IDs run data get entity @s item.tag.graveID
 execute store result score $tempID gravestones.IDs run data get entity @s PortalCooldown
+execute on attacker run tag @s add this
 execute as @e[type=item_display,predicate=gravestones:id_match] run function gravestones:find_player
+tag @a remove this
 # execute as the item_display corresponding to this interaction entity: function which tests whether the correct player clicked
 
 #scoreboard players set $test gravestones.Data 0
